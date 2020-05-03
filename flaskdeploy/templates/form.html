@@ -1,0 +1,823 @@
+<html>
+
+<head>
+	<title>ChestX Tool</title>
+	<link rel="icon" href="./static/logo.png" type="image/png" sizes="50x50">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dancing Script" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+
+body{
+	background-color: #E4E1E1;
+}
+
+.qfc-container {
+    --form-theme-color: #2FA5EB;
+    --form-bg-color: #E4E1E1;
+    --input-text-color: black;
+    --button-hover: #4e5050;
+    --input-bg-gray: #E2E5E5;
+    /* border: 7px solid var(--form-theme-color); */
+    border-top: 7px solid var(--form-theme-color);
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--form-bg-color);
+    padding: 35px;
+    width: 700px;
+    margin: 30px auto;
+}
+
+.qfc-container ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: var(--input-text-color);
+}
+
+.qfc-container ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: var(--input-text-color);
+}
+
+.qfc-container :-ms-input-placeholder {
+    /* IE 10+ */
+    color: var(--input-text-color);
+}
+
+.qfc-container :-moz-placeholder {
+    /* Firefox 18- */
+    color: var(--input-text-color);
+}
+
+.qfc-container input {
+    width: 200px;
+    display: block;
+    border: none;
+    padding: 12px !important;
+    border-bottom: solid 1px var(--form-theme-color);
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    background-repeat: no-repeat;
+    color: var(--input-text-color);
+}
+
+.qfc-container input:focus,
+input:valid {
+    box-shadow: none;
+    outline: none;
+    background-position: 0 0;
+}
+
+.qfc-container input::-webkit-input-placeholder {
+    font-family: 'roboto', sans-serif;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.qfc-container input:focus::-webkit-input-placeholder,
+input:valid::-webkit-input-placeholder {
+    color: var(--form-theme-color);
+    font-size: 11px;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+    visibility: visible !important;
+}
+
+.qfc-container h1 {
+    font-size: 112px;
+    font-weight: 300;
+    letter-spacing: -5px;
+    line-height: 128px;
+}
+
+.qfc-container h2 {
+    font-size: 56px;
+    line-height: 64px;
+}
+
+.qfc-container h3 {
+    font-size: 45px;
+    line-height: 64px;
+}
+
+.qfc-container h4 {
+    font-size: 34px;
+    line-height: 52px;
+}
+
+.qfc-container h5 {
+    font-size: 24px;
+    line-height: 44px;
+}
+
+.qfc-container h6 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 44px;
+}
+
+.qfc-container h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-decoration: none;
+    position: relative;
+    margin: 50px 0 0;
+    font-weight: 400;
+}
+
+.qfc-container h1:not(.no-underline):after,
+.qfc-container h2:not(.no-underline):after,
+.qfc-container h3:not(.no-underline):after,
+.qfc-container h4:not(.no-underline):after,
+.qfc-container h5:not(.no-underline):after,
+.qfc-container h6:not(.no-underline):after {
+    content: '';
+    position: relative;
+    display: block;
+    bottom: 0;
+    margin-bottom: 31px;
+    width: 100%;
+    border: 3px solid var(--form-theme-color);
+}
+
+.qfc-container .no-underline+h1,
+.qfc-container .no-underline+h2,
+.qfc-container .no-underline+h3,
+.qfc-container .no-underline+h4,
+.qfc-container .no-underline+h5,
+.qfc-container .no-underline+h6 {
+    margin-top: 0;
+}
+
+.qfc-container input[type="checkbox"] {
+    margin-left: 0px;
+    display: inline-block;
+    position: relative;
+    -webkit-appearance: none;
+    height: 2em;
+    width: 4em;
+    border-radius: 1.5em;
+    background-color: var(--input-bg-gray);
+    border: none;
+    background-clip: padding-box;
+    color: #919FAF;
+    vertical-align: middle;
+}
+
+.qfc-container input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    background-color: white;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background-clip: padding-box;
+    z-index: 2;
+}
+
+.qfc-container input[type="checkbox"]::after {
+    position: absolute;
+    left: 0.675em;
+    top: 0.35em;
+    font-family: "Ionicons";
+    content: "\f122\f12a";
+    letter-spacing: 0.75em;
+    z-index: 1;
+}
+
+.qfc-container label {
+    font-weight: 400;
+}
+
+.qfc-container input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+    color: white;
+    border: none;
+    border-color: transparent;
+    background-color: #919FAF;
+}
+
+.qfc-container input[type="checkbox"]:checked {
+    color: white;
+    background-color: var(--form-theme-color);
+    border-color: transparent;
+}
+
+.qfc-container input[type="checkbox"]:checked::before {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+.qfc-container form {
+    padding-top: 20px;
+}
+
+.qfc-container div {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.qfc-container input[type="radio"] {
+    width: 30px;
+    display: inline-block;
+}
+
+.qfc-container input,
+select {
+    border: none;
+    border-bottom: 1px solid var(--form-theme-color);
+    color: var(--input-text-color);
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border-radius: 0;
+    line-height: 22px;
+    display: block;
+    padding: 5px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.qfc-container textarea {
+    border: none;
+    border-bottom: 2px solid var(--form-theme-color);
+    color: var(--input-text-color);
+    font-weight: 500;
+    font-size: 1em;
+    border-radius: 0;
+    line-height: 22px;
+    display: block;
+    padding: 5px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.qfc-container input:focus,
+textarea:focus,
+select:focus {
+    border-bottom: 3px solid var(--form-theme-color);
+    color: var(--form-theme-color);
+    font-weight: 600;
+    outline: none;
+}
+
+.qfc-container input[type='radio']:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    top: -2px;
+    left: -1px;
+    margin: -5px;
+    position: relative;
+    background-color: white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 5px solid var(--input-bg-gray);
+}
+
+.qfc-container input[type='radio']:checked:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    top: -2px;
+    left: -1px;
+    margin: -5px;
+    position: relative;
+    background-color: var(--form-theme-color);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 5px solid var(--input-bg-gray);
+}
+
+.qfc-container textarea {
+    height: 10em;
+}
+
+.qfc-container select {
+    margin-top: 5px;
+    background: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: right 50%;
+    background-repeat: no-repeat;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+}
+
+
+.qfc-container select[multiple] {
+    background: none;
+}
+
+.qfc-container button:hover,
+input[type='button']:hover,
+input[type='reset']:hover,
+input[type='submit']:hover {
+    background: var(--button-hover);
+    transition: all .3s;
+}
+
+@media screen and (max-width: 900px) {
+    .qfc-container {
+        width: 70%;
+    }
+    .qfc-container input,
+    select {
+        width: 100%;
+    }
+}
+  a {
+    color :#00bcd4;
+    text-decoration: none;
+  }
+  .halfdiv{
+		width:33%;
+		 float:left; /* add this */
+	}
+ #predict-button{
+    background-color: #2FA5EB;
+    border-radius:8px;
+    width:105px !important;
+    color:white !important;
+    font-size: 17px !important;
+ }
+ .placing{
+    padding-top: 5px;
+ }
+
+ #guidance{
+    background-color: #2FA5EB;
+    border-radius:8px;
+    width:50% !important;
+    color:white !important;
+ }
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.leftside{
+    padding-top:40px;
+    width:30%;
+    float: left;
+}
+
+
+.rightside{
+    width:70%;
+    float: right;
+}
+
+.dinfo{
+    margin-bottom: 8px;
+}
+
+#symrun{
+    width:54px;
+    height: 57px;
+    border-radius: 50%;
+    position:relative;
+    bottom:30px;
+    left:23px;
+}
+
+  </style>
+
+</head>
+
+<body>
+  <div class="qfc-container " style="height:100%">
+    <h2>Chest Disease Detection</h2>
+    <label><b>Enter your details now!</b></label>
+    <form>
+      <div>
+        <div>
+            <input placeholder="Full Name" type="text" required>
+        </div>
+		<br>
+        <div>
+            <input placeholder="Phone Number" type="number" required>
+        </div>
+		<br>
+        <div>
+            <input placeholder="Email Address" type="email" required>
+        </div>
+		<br>
+        <div>
+          <label ><b>Gender</b></label>
+          <div style="margin-top:16px;">
+            <label>
+                <input type="radio" name="set_1" checked="checked">Male
+            </label>
+          </div>
+          <div>
+            <label>
+                <input type="radio" name="set_1">Female
+            </label>
+          </div>
+        </div>
+		<br><br>
+		<div>
+            <div>
+                <label><b>Select all symptoms that apply</b></label>
+            </div>
+            
+		    <div id="symptom-box">
+			<span class="halfdiv">
+				<input type="checkbox" class="symptom" name="symptombox" id="Breathing Problem" >
+				  <label for="Breathing Problem">Breathing Problem</label><br>
+			</span>
+			<span class="halfdiv">
+				<input type="checkbox" class="symptom" name="symptombox" id="Coughing" >
+				  <label for="Coughing">Coughing</label><br>
+			</span>
+			<span class="halfdiv">
+				<input type="checkbox" class="symptom" name="symptombox" id="Low Blood Pressure" >
+				  <label for="Low Blood Pressure">Low Blood Pressure</label><br>
+			</span>
+			<span class="halfdiv">
+				<input type="checkbox" class="symptom" name="symptombox" id="Chest Pain" >
+				  <label for="Chest Pain">Chest Pain</label><br>
+			</span>
+			<span class="halfdiv">
+				<input type="checkbox" class="symptom" name="symptombox" id="Rashes">
+				  <label for="Rashes">Rashes</label><br>
+			</span>
+			<span class="halfdiv">
+				<input type="checkbox" class="symptom"  name="symptombox" id="Headache">
+				  <label for="Headache">Headache</label><br>
+			</span>
+			<span class="halfdiv">
+				<input type="checkbox" class="symptom" name="symptombox" id="Weakness">
+				  <label for="Weakness">Weakness</label><br>
+			</span>
+			</div>
+        </div>
+        <div style="width:100%;float:left;">
+            <div style="float:left;width:90%">
+              <p id="symoutput" style="position:relative;top:20px"></p>  
+            </div>
+            <div style="float:right;width:10%">
+                <input id="symrun" type="button" onclick="runeng();" value="Run"></input>
+            </div>
+            <div style="clear:both;"></div>
+          <label><b>Upload image</b></label>
+          <div>
+            <input id="image-selector" type="file">
+          </div>
+          <div>
+            <div style="float:left;width:30%">
+                <img id="selected-image" src="./static/blank.jpg" height="200px" width="200px" style="object-fit:cover;"/>
+            </div>
+            <div style="float:right;width:70%" class="placing">
+              <input class="predictbtn " id="predict-button" href="javascript:void(0)" type="button" value="Predict"></input>
+              <p><span id="prediction"></span></p>
+              <p class="ddesc " id="DNoFinding" hidden><b>Description: </b>Could not find an approriate disease from the ones we diagnose. Please contact an expert to diagnose for other possible chest diseases or try with a different xray.</p>
+              <p class="ddesc " id="DPneumonia" hidden><b>Description: </b>An infection that inflames the air sacs in one or both lungs caused by bacteria, viruses and fungi. It can make it hard for one to breathe in enough oxygen to reach their bloodstream.</p>
+              <p class="ddesc " id="DCardiomegaly" hidden><b>Description: </b>An enlarged heart (cardiomegaly) means that the heart is bigger than normal. The heart can become enlarged if the muscle works so hard that it thickens, or if the chambers widen. can’t pump blood as efficiently as a heart that’s not enlarged. </p>
+              <p class="ddesc " id="DNodule" hidden><b>Description: </b>A spot on the lungs usually refers to a pulmonary nodule. This is a small, round growth on the lungs that shows up as a white spot on image scans. Typically, these nodules are smaller than three 3 centimeters (cm) in diameter.</p>
+              <p class="ddesc " id="DPneumothorax" hidden><b>Description: </b>A pneumothorax is a collapsed lung and occurs when air leaks into the space between your lung and chest wall. This air pushes on the outside of your lung and makes it collapse. Pneumothorax can be a complete lung collapse or a collapse of only a portion of the lung.</p>
+              <p class="ddesc " id="DEmphysema" hidden><b>Description: </b> the air sacs (alveoli) weaken and lose their ability to contract after expanding. Air can also get trapped in these sacs, causing some to break. ultimately decrease the amount of oxygen you get into your blood stream.</p>
+              <p class="ddesc " id="DEffusion" hidden><b>Description: </b>Also called water on the lung, is an excessive buildup of fluid in the space between your lungs and chest cavity.</p>
+              <p class="ddesc " id="DInfiltration" hidden><b>Description: </b>Infiltration is the diffusion or accumulation (in a tissue or cells) of foreign substances or in amounts in excess of the normal. The material collected in those tissues or cells is called infiltrate. infiltration is sometimes used to define the invasion of cancer cells into the underlying matrix or the blood vessels.</p>
+              <p class="ddesc " id="DHernia" hidden><b>Description: </b>A hernia occurs when an organ or fatty tissue squeezes through a weak spot in a surrounding muscle or connective tissue called fascia. The most common types of hernia are inguinal (inner groin), incisional (resulting from an incision), femoral (outer groin), umbilical (belly button), and hiatal (upper stomach). </p>
+              <p class="ddesc " id="DPleural_Thickening" hidden><b>Description: </b>A Pleural Thickening is a collapsed lung and occurs when air leaks into the space between your lung and chest wall. This air pushes on the outside of your lung and makes it collapse. Pneumothorax can be a complete lung collapse or a collapse of only a portion of the lung.</p>
+              <p class="ddesc " id="DAtelectasis" hidden><b>Description: </b>Atelectasis is a complete or partial collapse of the entire lung or area (lobe) of the lung. It occurs when the tiny air sacs within the lung become deflated or possibly filled with alveolar fluid. Atelectasis is one of the most common breathing (respiratory) complications after surgery.</p>
+              <p class="ddesc " id="DMass" hidden><b>Description: </b>A small round or oval-shaped growth in the lung around three centimeters (around 1.2 inches) in diameter. This mass will look like a white spot on your lungs, while the lung itself will appear black. </p>
+              <p class="ddesc " id="DConsolidation" hidden><b>Description: </b>Lung consolidation occurs when the air that usually fills the small airways in your lungs is replaced with something else. Depending on the cause, the air may be replaced with : a fluid, such as pus, blood, or water or a solid, such as stomach contents or cells.
+              </p>
+              <p class="ddesc " id="DEdema" hidden><b>Description: </b>collapsed lung and occurs when air leaks into the space between your lung and chest wall. This air pushes on the outside of your lung and makes it collapse. Can be a complete lung collapse or a collapse of only a portion of the lung.</p>
+              <p class="ddesc " id="DFibrosis" hidden><b>Description: </b> the air sacs (alveoli) weaken and lose their ability to contract after expanding. Air can also get trapped in these sacs, causing some to break. ultimately decrease the amount of oxygen you get into your blood stream.</p>
+          </div>
+          <div style="clear:both;"></div>
+      </div>
+        </div>
+		<br>
+        <center><input type="button" value="Get Guidance!" id="guidance" disabled></center><div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p style="font-weight: bold; font-size: 24px;" >Here are some details about the predicted disease</p>
+            <div class="leftside">
+                <img id="popupimg" height="230px" width="230px">
+            </div>
+            <div class="rightside" id="GNoFinding">
+                <p class="dinfo"><b>Disease name: </b>No Finding</p>
+                <p class="dinfo"><b>Description: </b>Could not find an approriate disease from the ones we diagnose. Please contact an expert to diagnose for other possible chest diseases or try with a different xray.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>If the patient faces any of these please guide further : Chest pain when you breathe or cough, Cough that produces phlegm or mucus, Fatigue and loss of appetite, Fever, sweating, and chills, Nausea, vomiting, and diarrhea, Shortness of breath </p>
+                <p class="dinfo"><b>Treatment: </b>Drinking lots of fluids, Lots of rest, Medicines to control fever, Surgery in case of severity</p>
+                <p class="dinfo"><b>Additional Information: </b>To increase odds of avoiding chronic lung disease, consider these tips: Don’t smoke, or quit smoking. Avoid secondhand smoke. Try to reduce your exposure to pollutants in the environment, at work, and in your home. Exercise regularly. Aerobic exercise that increases your heart rate is best. Eat a nutritious diet. Get regular checkups with your doctor.</p>
+            </div>
+            <div class="rightside" id="GPneumonia">
+                <p class="dinfo"><b>Disease name: </b>Pneumonia</p>
+                <p class="dinfo"><b>Description: </b>An infection that inflames the air sacs in one or both lungs caused by bacteria, viruses and fungi. It can make it hard for one to breathe in enough oxygen to reach their bloodstream.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Loss of Appetite, Chills, Coughing,Fever</p>
+                <p class="dinfo"><b>Treatment: </b>Drinking lots of fluids to loosen the gunk in your lungs, Lots of rest, Medicines to control your fever (ibuprofen or acetaminophen </p>
+                <p class="dinfo"><b>Additional Information: </b>Taking  antibiotics is recommended. If pneumonia was caused by a virus, time and rest are key to recovery. Lifestyle habits, like smoking cigarettes and drinking too much alcohol are very harmful and need to be changed.</p>
+            </div>
+            <div class="rightside" id="GCardiomegaly">
+                <p class="dinfo"><b>Disease name: </b>Cardiomegaly</p>
+                <p class="dinfo"><b>Description: </b>An enlarged heart (cardiomegaly) means that the heart is bigger than normal. The heart can become enlarged if the muscle works so hard that it thickens, or if the chambers widen. can’t pump blood as efficiently as a heart that’s not enlarged. </p>
+                <p class="dinfo"><b>Common Symptoms: </b>Weightloss, Runny Nose</p>
+                <p class="dinfo"><b>Treatment: </b>Plan for the condition that’s causing your enlarged heart. For heart conditions, the preferred first line of treatment is medication. For metabolic disorders, making sure you’re up to date on your medications for diabetes and thyroid disease can help reduce complications </p>
+                <p class="dinfo"><b>Additional Information: </b>Lifestyle changes - Exercise,  Quit smoking where Methods like nicotine replacement products and therapy can help you stop, Lose weight, Limit certain foods, Limit salt, cholesterol, and saturated and trans fats in your diet,  Avoid alcohol and practice relaxation techniques.</p>
+            </div>
+            <div class="rightside" id="GNodule">
+                <p class="dinfo"><b>Disease name: </b>Nodule</p>
+                <p class="dinfo"><b>Description: </b>A spot on the lungs usually refers to a pulmonary nodule. This is a small, round growth on the lungs that shows up as a white spot on image scans. Typically, these nodules are smaller than three 3 centimeters (cm) in diameter.
+</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Coughing Blood, Wheezing </p>
+                <p class="dinfo"><b>Treatment: </b>Inserting a small tube between the ribs or under the collarbone to release the gas that has built up, Surgical treatment, Doctors may prescribe various drugs to numb pain, help remove toxins, or prevent infection in the body. </p>
+                <p class="dinfo"><b>Additional Information: </b>can be difficult to diagnose and to treat. A person needs to work closely with their doctor to make sure the treatment is successful. Working with a doctor, as soon as symptoms are noticed, is the best way to ensure the pneumothorax heals correctly. </p>
+            </div>
+            <div class="rightside" id="GPneumothorax">
+                <p class="dinfo"><b>Disease name: </b>Pneumothorax</p>
+                <p class="dinfo"><b>Description: </b>A pneumothorax is a collapsed lung and occurs when air leaks into the space between your lung and chest wall. This air pushes on the outside of your lung and makes it collapse. Pneumothorax can be a complete lung collapse or a collapse of only a portion of the lung.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Chest Pain,Shortness of Breath</p>
+                <p class="dinfo"><b>Treatment: </b>Inserting a small tube between the ribs or under the collarbone to release the gas that has built up, Surgical treatment, Doctors may prescribe various drugs to numb pain, help remove toxins, or prevent infection in the body. </p>
+                <p class="dinfo"><b>Additional Information: </b>Pneumothorax can be difficult to diagnose and to treat. A person needs to work closely with their doctor to make sure the treatment is successful. Working with a doctor, as soon as symptoms are noticed, is the best way to ensure the pneumothorax heals correctly. </p>
+            </div>
+            <div class="rightside" id="GEmphysema">
+                <p class="dinfo"><b>Disease name: </b>Emphysema</p>
+                <p class="dinfo"><b>Description: </b> the air sacs (alveoli) weaken and lose their ability to contract after expanding. Air can also get trapped in these sacs, causing some to break. ultimately decrease the amount of oxygen you get into your blood stream.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Discomfort in chest, Chills
+</p>
+                <p class="dinfo"><b>Treatment: </b>Medications-Bronchodilators:,Corticosteroids,Antibiotics,therapies to improve breathing and relieve symptoms </p>
+                <p class="dinfo"><b>Additional Information: </b> The first step you can take to manage your health is to stop smoking, if you smoke. You can also wear a mask to avoid secondhand smoking or inhaling dust and chemical fumes.You can also talk to your family, friends, or a counselor to relieve stress that may come with this condition. </p>
+            </div>
+            <div class="rightside" id="GEffusion">
+                <p class="dinfo"><b>Disease name: </b>Effusion</p>
+                <p class="dinfo"><b>Description: </b>Also called water on the lung, is an excessive buildup of fluid in the space between your lungs and chest cavity.
+</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Chest Pain,Weakness
+ </p>
+                <p class="dinfo"><b>Treatment: </b>Draining fluid from the chest cavity, Pleurodesis: a treatment that creates mild inflammation between the lung and chest cavity pleura or  SurgeryIn more serious cases, a doctor surgically inserts a shunt, or small tube, into the chest cavity. This helps redirect the fluid from the chest into the abdomen, 
+ </p>
+                <p class="dinfo"><b>Additional Information: </b>can be the result of cancer cells spreading to the pleura. Fluid may also build up as a result of certain cancer treatments, such as radiation therapy or chemotherapy.The time it takes to recover from pleural effusions depends on the cause, size, and severity of the effusion, as well as your overall health. </p>
+            </div>
+            <div class="rightside" id="GInfiltration">
+                <p class="dinfo"><b>Disease name: </b>Infiltration</p>
+                <p class="dinfo"><b>Description: </b>Infiltration is the diffusion or accumulation (in a tissue or cells) of foreign substances or in amounts in excess of the normal. The material collected in those tissues or cells is called infiltrate. infiltration is sometimes used to define the invasion of cancer cells into the underlying matrix or the blood vessels.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Swelling, Skin Redness,Muscle Ache</p>
+                <p class="dinfo"><b>Treatment: </b>Inserting a small tube between the ribs or under the collarbone to release the gas that has built up, Surgical treatment, Doctors may prescribe various drugs to numb pain, help remove toxins, or prevent infection in the body. </p>
+                <p class="dinfo"><b>Additional Information: </b>It is very important to keep lungs clear.It can be achieved by: Steam therapy or steam inhalation, involves inhaling water vapor to open the airways and help the lungs drain mucus. Controlled coughing. Drain mucus from the lungs. Exercise. Green tea. Anti-inflammatory foods</p>
+            </div>
+            <div class="rightside" id="GHernia">
+                <p class="dinfo"><b>Disease name: </b>Hernia</p>
+                <p class="dinfo"><b>Description: </b>A hernia occurs when an organ or fatty tissue squeezes through a weak spot in a surrounding muscle or connective tissue called fascia. The most common types of hernia are inguinal (inner groin), incisional (resulting from an incision), femoral (outer groin), umbilical (belly button), and hiatal (upper stomach). </p>
+                <p class="dinfo"><b>Common Symptoms: </b>Fatigue,Recurring Infections </p>
+                <p class="dinfo"><b>Treatment: </b>Surgery-Surgery is recommended for some types of hernias to prevent complications like obstruction of the bowel .Truss-use of an external device to maintain reduction of the hernia without repairing the underlying defect.Apply ice or cold compress to the hernia for several minutes to reduce swelling and allow an easier reduction </p>
+                <p class="dinfo"><b>Additional Information: </b>Hernias don't go away on their own. Only surgery can repair a hernia. . And some people may never need surgery for a small hernia. If the hernia is small and  patient doesn't have any symptoms, or if the symptoms don't bother  much, the doctor may simply continue to watch for symptoms to occur.</p>
+            </div>
+            <div class="rightside" id="GPleural_Thickening">
+                <p class="dinfo"><b>Disease name: </b>Pleural Thickening</p>
+                <p class="dinfo"><b>Description: </b>A Pleural Thickening is a collapsed lung and occurs when air leaks into the space between your lung and chest wall. This air pushes on the outside of your lung and makes it collapse. Pneumothorax can be a complete lung collapse or a collapse of only a portion of the lung.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Burning Sensation, Tighness in Chest</p>
+                <p class="dinfo"><b>Treatment: </b>Inserting a small tube between the ribs or under the collarbone to release the gas that has built up, Surgical treatment, Doctors may prescribe various drugs to numb pain, help remove toxins, or prevent infection in the body. </p>
+                <p class="dinfo"><b>Additional Information: </b>'Pleural_Thickening can be difficult to diagnose and to treat. A person needs to work closely with their doctor to make sure the treatment is successful. Working with a doctor, as soon as symptoms are noticed, is the best way to ensure the pneumothorax heals correctly. </p>
+            </div>
+            <div class="rightside" id="GAtelectasis">
+                <p class="dinfo"><b>Disease name: </b>Atelectasis</p>
+                <p class="dinfo"><b>Description: </b>Atelectasis is a complete or partial collapse of the entire lung or area (lobe) of the lung. It occurs when the tiny air sacs within the lung become deflated or possibly filled with alveolar fluid. Atelectasis is one of the most common breathing (respiratory) complications after surgery.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Bluish Color skin,Shortness of Breath,Coughing </p>
+                <p class="dinfo"><b>Treatment: </b>Chest physiotherapy-Techniques that help you breathe deeply after surgery to re-expand collapsed lung tissue are very important. Surgery-Removal of airway obstructions may be done by suctioning mucus or by bronchoscopy. During bronchoscopy, the doctor gently guides a flexible tube down your throat to clear your airways.</p>
+                <p class="dinfo"><b>Additional Information: </b>Treatment of atelectasis depends on the cause. Mild atelectasis may go away without treatment. Sometimes, medications are used to loosen and thin mucus. Atelectasis usually gets better with time or treatment.</p>
+            </div>
+            <div class="rightside" id="GMass">
+                <p class="dinfo"><b>Disease name: </b>Mass</p>
+                <p class="dinfo"><b>Description: </b>A small round or oval-shaped growth in the lung around three centimeters (around 1.2 inches) in diameter. This mass will look like a white spot on your lungs, while the lung itself will appear black.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Coughing Blood,Fever,Abdominal pain</p>
+                <p class="dinfo"><b>Treatment: </b>Plan for the condition that’s causing your enlarged heart. For heart conditions, the preferred first line of treatment is medication. For metabolic disorders, making sure you’re up to date on your medications for diabetes and thyroid disease can help reduce complications </p>
+                <p class="dinfo"><b>Additional Information: </b>Lifestyle changes - Exercise,  Quit smoking where Methods like nicotine replacement products and therapy can help you stop, Lose weight, Limit certain foods, Limit salt, cholesterol, and saturated and trans fats in your diet,  Avoid alcohol and practice relaxation techniques.</p>
+            </div>
+            <div class="rightside" id="GConsolidation">
+                <p class="dinfo"><b>Disease name: </b>Consolidation</p>
+                <p class="dinfo"><b>Description: </b>Lung consolidation occurs when the air that usually fills the small airways in your lungs is replaced with something else. Depending on the cause, the air may be replaced with: a fluid, such as pus, blood, or water or a solid, such as stomach contents or cells
+</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Low Blood Pressure, Wheezing </p>
+                <p class="dinfo"><b>Treatment: </b>Inserting a small tube between the ribs or under the collarbone to release the gas that has built up, Surgical treatment, Doctors may prescribe various drugs to numb pain, help remove toxins, or prevent infection in the body. </p>
+                <p class="dinfo"><b>Additional Information: </b>can be difficult to diagnose and to treat. A person needs to work closely with their doctor to make sure the treatment is successful. Working with a doctor, as soon as symptoms are noticed, is the best way to ensure the pneumothorax heals correctly. </p>
+            </div>
+            <div class="rightside" id="GEdema">
+                <p class="dinfo"><b>Disease name: </b>Edema</p>
+                <p class="dinfo"><b>Description: </b>collapsed lung and occurs when air leaks into the space between your lung and chest wall. This air pushes on the outside of your lung and makes it collapse. Can be a complete lung collapse or a collapse of only a portion of the lung.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Stretchy Skin,Swelling</p>
+                <p class="dinfo"><b>Treatment: </b>Inserting a small tube between the ribs or under the collarbone to release the gas that has built up, Surgical treatment, Doctors may prescribe various drugs to numb pain, help remove toxins, or prevent infection in the body. </p>
+                <p class="dinfo"><b>Additional Information: </b>Can be difficult to diagnose and to treat. A person needs to work closely with their doctor to make sure the treatment is successful. Working with a doctor, as soon as symptoms are noticed, is the best way to ensure the pneumothorax heals correctly. </p>
+            </div>
+            <div class="rightside" id="GFibrosis">
+                <p class="dinfo"><b>Disease name: </b>Fibrosis</p>
+                <p class="dinfo"><b>Description: </b> the air sacs (alveoli) weaken and lose their ability to contract after expanding. Air can also get trapped in these sacs, causing some to break. ultimately decrease the amount of oxygen you get into your blood stream.</p>
+                <p class="dinfo"><b>Common Symptoms: </b>Blurred Vision,Green mucus,Loss of Appetite</p>
+                <p class="dinfo"><b>Treatment: </b>Medications-Bronchodilators, Corticosteroids, Antibiotics,therapies to improve breathing and relieve symptoms </p>
+                <p class="dinfo"><b>Additional Information: </b> The first step you can take to manage your health is to stop smoking, if you smoke. You can also wear a mask to avoid secondhand smoking or inhaling dust and chemical fumes.You can also talk to your family, friends, or a counselor to relieve stress that may come with this condition. </p>
+            </div>
+            <div style="clear:both;"></div> 
+          </div>
+        </div>
+      </div>
+    </form>
+    <br><br>
+  </div>
+</body>
+<script>
+	var classes=document.getElementsByClassName('symptom');
+		for(var i=0;i<classes.length;i++){
+			classes[i].addEventListener('click',load);
+		}
+		function load(){
+			var myDiv=document.getElementById('symptom-box');
+			var sym_tree={'Breathing Problem':['Shortness of Breath','Wheezing','Tighness in Chest','Burning Sensation'],'Coughing':['Coughing Blood','Dehydration','Coughing Mucus'],"Low Blood Pressure":['Lack of Concentration', 'Blurred Vision'],'Chest Pain':['Muscle Ache', 'Abdominal pain','Discomfort in chest'],'Rashes':['Recurring Infections','Swelling'],'Headache':['Runny Nose','Fever'],'Weakness':['Weightloss','Dizziness'],'Dehydration':['Low urine output','Dry skin'],'Coughing Mucus':['Yellow mucus','Green mucus'],'Fever':['Chills','Sweating','Fatigue','Change in skin color','Loss of Appetite'],'Change in skin color':['Bluish Color skin','Skin Redness','Stretchy Skin']}
+			if(this.checked==true){
+				sym_name=this.id;
+				if(sym_name in sym_tree){
+					//add checkboxes
+					for(child in sym_tree[sym_name]){
+						var spann=document.createElement("span");
+						spann.id="S"+ sym_tree[sym_name][child]
+						spann.className="halfdiv";
+						var secondary = document.createElement("input"); 
+						secondary.type="checkbox";
+                        secondary.name="symptombox"
+						secondary.setAttribute("id",sym_tree[sym_name][child]);
+						secondary.addEventListener('click',load);
+						var label = document.createElement('label'); 
+						label.id ="L"+sym_tree[sym_name][child];
+						label.htmlFor = sym_tree[sym_name][child]; 
+						label.appendChild(document.createTextNode(sym_tree[sym_name][child]));
+						spann.appendChild(secondary);
+						spann.appendChild(label);
+						myDiv.appendChild(spann);
+					}
+				}
+			}
+			else if(this.checked==false){
+				sym_name=this.id;
+				if(sym_name in sym_tree){
+					//remove checkboxes
+					listt=sym_tree[sym_name];
+					while(1){
+						var k=[]
+						for(i in listt){
+							try{
+								var spanid="S"+listt[i];
+								document.getElementById(spanid).remove()
+								if(listt[i] in sym_tree){
+									for(s in sym_tree[listt[i]]){
+										k.push(sym_tree[listt[i]][s])
+									}
+								}
+							}
+							catch{
+								
+							}
+						}
+						listt=k;
+						if(listt.length==0){
+							break;
+						}
+					}					
+				}
+			}
+		}
+        let dataURL
+        $("#image-selector").change(function() {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                dataURL = reader.result;
+                $('#selected-image').attr("src", dataURL);
+                $('#popupimg').attr("src", dataURL);
+            }
+            reader.readAsDataURL($("#image-selector")[0].files[0]);
+            $("#prediction").hide();
+            $(".ddesc").hide();
+        });
+
+        $("#predict-button").click(function() {
+                  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+                  var img = dataURL;
+                  $.ajax({
+                    type: "POST",
+                    url: $SCRIPT_ROOT + "/predict/",
+                    data: img,
+                    success: function(data){
+                        var fileName = $("#image-selector").val();
+                        if(fileName){
+                          $('#prediction').text('Disease Prognosis: '+data);
+                          $("#prediction").show();
+                          $("#guidance").prop("disabled", false);
+                          $(".rightside").hide();
+                          $(".ddesc").hide();
+                          if(data=="No Finding"){
+                            $("#GNoFinding").show();
+                            $("#DNoFinding").show();
+                          }
+                          else{
+                            $("#G"+data).show();
+                            $("#D"+data).show();
+                          }
+                        }
+                        else{
+                            $("#prediction").hide();
+                            $(".ddesc").hide();
+                            $("#guidance").prop("disabled", true);
+                        }
+                  }
+                });
+                });
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("guidance");
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        function runeng(){
+            var listchecked=[]
+            var checkedBoxes = document.querySelectorAll('input[name=symptombox]:checked');
+            for(var i=0;i<checkedBoxes.length;i++){
+                listchecked.push(checkedBoxes[i].id)
+            }
+            var engg={'Atelectasis':['Bluish Color skin','Shortness of Breath','Coughing'],'Pleural_Thickening':['Burning Sensation', 'Tighness in Chest'],'Mass':['Coughing Blood','Fever','Abdominal pain'],'Edema':['Stretchy Skin','Swelling'],'Consolidation':['Low Blood Pressure', 'Wheezing'],'Infiltration':['Swelling', 'Skin Redness','Muscle Ache','Rashes'],'Fibrosis':['Blurred Vision','Green mucus','Loss of Appetite'],'Pneumonia':['Loss of Appetite', 'Chills', 'Coughing','Fever'],'Pneumothorax': ['Chest Pain','Shortness of Breath'],'Nodule': ['Coughing Blood', 'Wheezing'],'Hernia': ['Fatigue','Recurring Infections'],'Emphysema': ['Discomfort in chest', 'Chills'],'Effusion': ['Chest Pain','Weakness','Headache'],'Cardiomegaly' : ['Weightloss', 'Runny Nose','Breathing Problem']}
+            var answer=[]
+            for(var j=0;j<listchecked.length;j++){
+                for(dis in engg){
+                    symlist=engg[dis];
+                    if(symlist.includes(listchecked[j])){
+                        answer.push(dis)
+                        break;
+                    }
+                }
+            }
+            let unique = [...new Set(answer)];
+            let un=[...unique];
+            var first6=un.slice(0,5);
+            var spanengg=document.getElementById("symoutput");
+
+            spanengg.innerHTML="Disease Prognosis: " +first6.join(", ")
+        }
+	</script>
+</html>

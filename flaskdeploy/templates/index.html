@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ChestX</title>
+		<link rel="icon" href="./static/logo.png" type="image/png" sizes="50x50">
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Rancho' rel='stylesheet'>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="https://code.jquery.com/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{ url_for('static',filename='login.css') }}"/>
+		
+	</head>
+	<body>
+	<div class="top" id="navbar">
+		<img src="./static/logo.png" width="80px" height="80px" align="left" style="position:relative;bottom:15px;">
+		 Contact Us +91 96366 20000 / 01 | chexnet@hospital.com 
+	</div>
+	<div class="logo container-fluid" style="height:90px;">
+		<p style="text-align:right;font-family: 'Comfortaa';font-style:italic;font-size:13px">You are now logged in</p>
+		<center><p style="font-size:50px;font-family:forte;position:relative;top:-20px"> <font color="#428bca"> Chest X-Ray  </font><font color="#000"> Diagnosis</font></p></center>
+		<form action="/">
+			<input type="submit" class="btn" value="SignOut">
+		</form>
+	</div>
+		
+	<div class="middle" style="background-image: url('./static/ac.jpg');">
+		<div class="login-form">
+			<h1>Get chest diagnosis with ease</h1>
+			<center><h5 style="line-height:15px;font-family: 'Comfortaa'">We use a Computer-Aided Machine Learning tool to diagnose possible thoracic diseases</h5></center>
+			<center>
+				<form action="/form">
+					<input type="submit" class="btn btn-primary" value="Try the feature!">
+				</form>
+			</center>
+		</div>
+		<a class="ct-btn-scroll bounce" href="#section1"><img alt="Arrow Down Icon" src="./static/arrow.png"></a>
+	</div>
+	<section id="section1">
+    <!-- Paralllllaaaaaaaaaaaaaaaaaaaaaaaaaaax -->
+	<div class="parallax" style="background-image: url('./static/paralexImg.jpg')">
+		<div class="disease-list" style="text-align:center;padding:40px 0px;">
+			<div style="margin-top:30px;color:white;font-size:30px;font-family: 'Rancho'; letter-spacing:1.4px;">We study and diagnose the following diseases with help of our new Computer Aided Machine Learning Tool<br><br>
+			</div>
+			<div class="row">
+				<div class="img-card" style="margin-left:155px;">
+					<img  class="dot" src="./static/atl.png" alt="Atelectasis" style="width:100px;height:100px;">
+					<p class="caption">Atelectasis</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/conso.jpg" alt="Consolidaton" style="width:100px;height:100px">
+					<p class="caption">Consolidaton</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/inf.png" alt="Infiltration" style="width:100px;height:100px">
+					<p class="caption">Infiltration</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/pnem.jpeg" alt="Pneumothorax" style="width:100px;height:100px">
+					<p class="caption">Pneumothorax</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/edem.jpeg" alt="Edema" style="width:100px;height:100px">
+					<p class="caption">Edema</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/emph.jpeg" alt="Emphysema" style="width:100px;height:100px">
+					<p class="caption">Emphysema</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/fibr.jpg" alt="Fibrosis" style="width:100px;height:100px">
+					<p class="caption">Fibrosis</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="img-card" style="margin-left:155px;">
+					<img  class="dot" src="./static/eff.png" alt="Effusion" style="width:100px;height:100px">
+					<p class="caption">Effusion</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/pn.jpeg" alt="Pneumonia" style="width:100px;height:100px">
+					<p class="caption">Pneumonia</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/plu.jpg" alt="Pleural Thickening" style="width:100px;height:100px">
+					<p class="caption">Thickening</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/card.png" alt="Cardiomegaly" style="width:100px;height:100px">
+					<p class="caption">Cardiomegaly</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/nod.jpg" alt="Nodule" style="width:100px;height:100px">
+					<p class="caption">Nodule</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/mas.jpg" alt="Mass" style="width:100px;height:100px">
+					<p class="caption">Mass</p>
+				</div>
+				<div class="img-card">
+					<img  class="dot" src="./static/her.jpg" alt="Hernia" style="width:100px;height:100px">
+					<p class="caption">Hernia</p>
+				</div>
+			</div>
+		</div>
+		<div class="graph-div">
+			<div class="container">
+				<div class="inner-graph">
+					<img  class="graph" src="./static/perdisease.png" >
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="stats-counter">
+			<div class="container">
+				<div class="title-stats-counter">
+					<h3 class="stats-title-styling white-text">
+						<span class="black">About
+						<span class="black">Us
+					</h3>
+				
+					<div class="stats-line">
+						<span class="fa fa-wheelchair" style="font-size: 2em;" aria-hidden="true"></span>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="container">
+					<div class="col-md-4 col-sm-4 stats-grid">
+						<div class="stat-info-w3ls">
+							<h4 class="stats-grid">Doctors</h4>
+							<h6 class="stats-col">Two decades of experience in the healthcare sector</h6>
+							<h6 class="stats-col">Team of compassionate and dedicated professionals</h6>
+							<h6 class="stats-col">Rich knowledge and experience in their domains</h6>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-4 col-sm-4 agileits w3layouts col-sm-6 stats-grid stats-grid-1">
+						<div class="stat-info-w3ls" style="border-left: 1px solid #fff; padding-left: 3em;">
+							<h4 class="stats-grid">Achievements</h4>
+							<h6 class="stats-col">Adjudged the 7th best Hospital</h6>
+							<h6 class="stats-col">First in class Computer Aided technology award</h6>
+							<h6 class="stats-col">Save-A-Heart Program launched in 2018</h6>
+
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-md-4 col-sm-4 agileits w3layouts stats-grid stats-grid-2">
+						<div class="stat-info-w3ls" style="border-left: 1px solid #fff; padding-left: 3em;">
+							<h4 class="stats-grid">Facilities</h4>
+							<h6 class="stats-col">Residential accommodation to doctors and staff</h6>
+							<h6 class="stats-col">Premier department of emergency medicine</h6>
+							<h6 class="stats-col">Centers of excellence for key super specialties</h6>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>	
+		<div class="emergency_cases">
+			<div class="container">
+				<div class="emergency_container_cases_top">
+					<div class="col-md-6 emergency_cases_left">
+						<h4>Opening Hours</h4>
+						<h6>Monday - Fri&nbsp;<span class="floating">8.00 - 18.00</span></h6>
+						<h6>Saturday - Sun&nbsp;<span class="floating">9.00 - 17.00</span></h6>
+					</div>
+					<div class="col-md-6 col-sm-12 emergency_cases_right">
+						<h4>Emergency Cases</h4>
+						<h5><i class="fa fa-phone" aria-hidden="true"></i>1230456789</h5>
+						<p>In Case of Emergence Contact on above Phone#</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	 <!-- FOOOTEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRR -->
+	<div>
+        <div class="row" style="overflow: hidden; margin: 0px; padding: 0px;">
+            <div class="col">
+                <div class="ocean top-padding">
+                    <div class="wave" style="background: url('./static/wave.svg') repeat-x;"></div>
+                    <div class="wave " style="background: url('./static/wave.svg') repeat-x;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_top">
+        <div class="container">
+            <div class="row"> 
+				<div class="col-md-3 footer_grid" style="text-align: left;">
+					<h3>About Us</h3>
+					<ul class="footer_grid_list footerList" >
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527" href="#" data-toggle="modal" data-target="#myModal">Non-profit</a>
+						</li>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527;"  href="#" data-toggle="modal" data-target="#myModal">Our Mission</a>
+						</li>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527;"  href="#" data-toggle="modal" data-target="#myModal">Leadership</a>
+						</li>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527;"  href="#" data-toggle="modal" data-target="#myModal">Vision & values</a>
+						</li>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527;"  href="#" data-toggle="modal" data-target="#myModal">Facts & Figures</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 footer_grid" style="text-align: left;">
+					<h3>Latest News</h3>
+					<ul class="footer_grid_list footerList">
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527;"  href="https://www.healthline.com/health/chest-pain" target="_blank" >Why Am I Having Chest Pain?</a>
+						</li>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527;"  href="https://www.healthline.com/health/heart-disease/symptoms" data-toggle="modal" target="_blank" >Heart Disease Symptoms</a>
+						</li>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527;"  href="https://www.healthline.com/health/understanding-idiopathic-pulmonary-fibrosis/chronic-lung-diseases-causes-and-risk-factors" target="_blank">Chronic Lung Diseases</a>
+						</li>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527;"  href="https://www.healthline.com/health/breathing-difficulties" target="_blank">Why Am I Having Trouble Breathing?</a>
+						</li>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+							<a style="color: #252527;"  href="https://www.healthline.com/health/lung-cancer/early-signs" target="_blank">Early Signs of Lung Cancer</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 footer_grid" style="text-align: left;">
+					<h3 style="text-align: center;">Contact Info</h3>
+					<ul class="address">
+						<li  style="color: #252527;"><i class="fa fa-map-marker" aria-hidden="true"></i>PES, Banshakari Bangalore.</span></li>
+						<li><i class="fa fa-envelope" aria-hidden="true"></i><a style="color: #252527;" href="mailto:info@example.com">chexnet@hospital.com</a></li>
+						<li  style="color: #252527;"><i class="fa fa-phone" aria-hidden="true"></i>+91 96366 20000/01</li>
+
+					</ul>
+				</div>
+				<div class="col-md-3 footer_grid "style="text-align: left;">
+					<h3>Sign up for our Newsletter</h3>
+					<p  style="color: #252527;">Get Started For Free</p>
+					<div class="footer_grid_right">
+						<form action="#" method="post">
+							<input type="email" name="Email" placeholder="Email Address..." required="">
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+        </div>
+    </div>
+	<div class="footer_copyrights">
+	        <p>© 2020 ChestX Diagnostic Tool. All rights reserved | <a href="https://www.pes.edu" target="_blank">PESU</a></p>
+	</div>
+    </div>
+	</section>
+	</body>
+	<script>
+		$(document).ready(function(){
+		  $("a").on('click', function(event) {
+			if (this.hash !== "") {
+			  event.preventDefault();
+			  var hash = this.hash;
+			  $('html, body').animate({
+				scrollTop: $(hash).offset().top
+			  }, 800, function(){
+				window.location.hash = hash;
+			  });
+			} 
+		  });
+		});
+	</script>
+</html>

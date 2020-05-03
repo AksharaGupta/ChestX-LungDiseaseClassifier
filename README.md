@@ -33,9 +33,10 @@ all in /CNNModel/data/images
 6. Cd into the directory called CNNModel.
 8. Run the command to open jupyter notebook using the links displayed in browser jupyter notebook
 9. Run the Try-Copy-Move code
-10. Open the VGGtrain notebook under “Using Keras” directory
-11. Add images in alient_test folder which you would like to test to see how many are correctly or wrongly predicted
-12. Open testing notebook under “Using Keras” directory
+10. Open the VGGtrain notebook under “Using Keras” directory an run
+11. Copy the 3 files: CNN.best_from..,model.h5 and weights.h5 to flaskdeploy/model/  (this model will be used by the website)
+12. Add images in alient_test folder which you would like to test to see how many are correctly or wrongly predicted
+13. Open testing notebook under “Using Keras” directory
 
 Access Web application with deployed model:
 

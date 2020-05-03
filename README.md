@@ -43,4 +43,5 @@ Access Web application with deployed model:
 2. Run in anaconda prompt- python keras_flask.py
 3. Open browser : localhost:5000
 4. Access web application. Login credentials - username:admin, password:admin
+5. Open DataAnalysis.ipnb to see few data analysis codes on the dataset. (Add required csv to your drive at a specified location and use that in the code throughout)
 
